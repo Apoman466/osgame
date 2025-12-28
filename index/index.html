@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSGAME - Cihan Devleti</title>
+    <style>
+        /* GENEL TEMA */
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; color: #ece8e1; background-color: #0a0e0a; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        /* ÜST MENÜ */
+        .navbar { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(0,0,0,0.8); box-sizing: border-box; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: #d4af37; text-decoration: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .nav-links a:hover { color: white; text-shadow: 0 0 10px #d4af37; }
+        .nav-btn { color: #d4af37; border: 2px solid #d4af37; padding: 10px 25px; font-weight: bold; cursor: pointer; }
+
+        /* HERO */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(10,14,10,1)), url('image_e3620e.png'); background-size: cover; background-attachment: fixed; image-rendering: pixelated; }
+        .logo { font-size: 5rem; color: #d4af37; letter-spacing: 15px; margin: 0; text-shadow: 4px 4px 0px #1a472a; }
+
+        /* PADİŞAHLAR VE FORUM */
+        .content-section { padding: 100px 20px; display: flex; flex-direction: column; align-items: center; background: #0a0e0a; }
+        .card { max-width: 800px; margin-bottom: 100px; padding: 30px; border-left: 4px solid #d4af37; background: rgba(255,255,255,0.03); }
+        .card img { width: 220px; image-rendering: pixelated; filter: drop-shadow(0 0 10px #d4af37); }
+        .card h2 { color: #d4af37; margin-top: 15px; }
+
+        /* MODAL GİRİŞ SİSTEMİ */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        .modal-content { background: #1a472a; padding: 30px; border: 2px solid #d4af37; width: 380px; position: relative; }
+        input { width: 100%; padding: 12px; margin: 8px 0; background: #0a0e0a; border: 1px solid #d4af37; color: white; }
+        .action-btn { width: 100%; padding: 15px; background: #d4af37; color: #0a0e0a; border: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-small" style="color:#d4af37; font-weight:bold; font-size:1.5rem;">OSGAME</div>
+        <div class="nav-links">
+            <a onclick="showSection('padişahlar')">PADİŞAHLAR</a>
+            <a onclick="showSection('forum')">BEYLER DİVANI (FORUM)</a>
+            <div class="nav-btn" onclick="openModal()">GİRİŞ YAP</div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="logo">OSGAME</h1>
+        <p>KAYI BOYU'NDAN CİHAN DEVLETİNE</p>
+    </section>
+
+    <div id="padişahlar" class="content-section">
+        <div class="card">
+            <img src="osg.png" alt="Osman Gazi">
+            <h2>OSMAN GAZİ</h2>
+            <p>Osmanlı Devleti'nin kurucusu. 1299'da bağımsızlığını ilan ederek 600 yıllık çınarın tohumlarını attı.</p>
+        </div>
+        <div class="card">
+            <img src="ohrng.png" alt="Orhan Gazi">
+            <h2>ORHAN GAZİ</h2>
+            <p>Bursa fatihi ve devletin teşkilatçısı. İlk düzenli orduyu kurdu ve ilk gümüş akçeyi bastırdı.</p>
+        </div>
+        <div class="card">
+            <img src="1mrd.png" alt="I. Murad">
+            <h2>I. MURAD</h2>
+            <p>Balkanlar'ın kapısını açan Hüdavendigar. Kosova'da zafer kazandıktan sonra şehit düşmüştür.</p>
+        </div>
+        <div class="card">
+            <img src="yldmby.png" alt="Yıldırım Bayezid">
+            <h2>YILDIRIM BAYEZİD</h2>
+            <p>Hızıyla düşmana korku salan padişah. Niğbolu fatihi ve İstanbul'u kuşatan ilk Osmanlı padişahı.</p>
+        </div>
+    </div>
+
+    <div id="forum" class="content-section" style="display:none;">
+        <h2 style="color:#d4af37; font-size: 3rem;">BEYLER DİVANI</h2>
+        <div class="card" style="width: 100%;">
+            <h3>[Duyuru] V1.0 Versiyonu Hakkında</h3>
+            <p>Beylerim, ilk 4 padişahımız ve beylerimiz savaşa hazır! Hangi stratejiyi izleyeceksiniz?</p>
+            <hr border-color="#d4af37">
+            <p><strong>@TurgutAlp:</strong> "Balta ile girmek her zaman en iyisidir!"</p>
+            <p><strong>@GunduzBey:</strong> "Önce obayı güçlendirmek lazım."</p>
+            <button class="action-btn" style="padding: 5px 15px; width: auto;">Yanıtla</button>
+        </div>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span style="float:right; cursor:pointer; color:#d4af37;" onclick="closeModal()">X</span>
+            <h2 style="color:#d4af37; text-align:center;">BEY GİRİŞİ</h2>
+            <input type="text" id="user" placeholder="Bey Adı">
+            <input type="password" placeholder="Parola">
+            <div style="background:#0a0e0a; padding:5px; margin:5px; color:#d4af37; text-align:center; font-weight:bold;">CAPTCHA: <span id="cap"></span></div>
+            <input type="text" id="capIn" placeholder="Kodu Gir">
+            <button class="action-btn" onclick="checkLogin()">SEFERE BAŞLA</button>
+        </div>
+    </div>
+
+    <script>
+        // Sayfa Değiştirme
+        function showSection(id) {
+            document.getElementById('padişahlar').style.display = id === 'padişahlar' ? 'flex' : 'none';
+            document.getElementById('forum').style.display = id === 'forum' ? 'flex' : 'none';
+            window.scrollTo(0, 800);
+        }
+
+        // Modal ve Captcha İşlemleri
+        function openModal() { 
+            document.getElementById('authModal').style.display = 'flex'; 
+            let code = Math.random().toString(36).substring(7).toUpperCase();
+            document.getElementById('cap').innerText = code;
+        }
+        function closeModal() { document.getElementById('authModal').style.display = 'none'; }
+        
+        function checkLogin() {
+            let user = document.getElementById('user').value;
+            let capIn = document.getElementById('capIn').value;
+            let capReal = document.getElementById('cap').innerText;
+            if(user && capIn === capReal) {
+                alert("Hoş geldin " + user + " Bey!");
+                closeModal();
+            } else {
+                alert("Hatalı giriş veya captcha!");
+            }
+        }
+    </script>
+</body>
+</html>
