@@ -1,0 +1,134 @@
+/* 1. GENEL AYARLAR */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: white;
+    overflow-x: hidden; /* Sağ-sol kaymasını engeller */
+    background-color: #0f1923; /* Valorant'ın o meşhur koyu teması */
+    scroll-behavior: smooth; /* Kaydırmanın yumuşak olması için */
+}
+
+/* 2. SAĞ ÜST NAVİGASYON (GİRİŞ BUTONU) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: flex-end; /* Butonu sağa yaslar */
+    z-index: 1000; /* Hep en üstte kalmasını sağlar */
+    box-sizing: border-box;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 35px;
+    transition: all 0.3s ease;
+    background-color: rgba(15, 25, 35, 0.5);
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.login-btn:hover {
+    background-color: white;
+    color: #0f1923;
+    border-color: white;
+}
+
+/* 3. BÖLÜM (SECTION) AYARLARI */
+section {
+    width: 100%;
+    min-height: 100vh; /* Her bölüm en az bir ekran boyu kadar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* 4. ANA GİRİŞ (HERO SECTION) */
+.hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fırtınanın arkada sabit kalmasını sağlar */
+    image-rendering: pixelated; /* Senin pixel art çiziminin netliğini korur */
+}
+
+.logo {
+    font-size: clamp(4rem, 10vw, 8rem); /* Ekrana göre büyüyüp küçülen dev logo */
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.download-btn {
+    padding: 20px 60px;
+    font-size: 1.2rem;
+    background-color: #ff4655; /* Valorant kırmızısı */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: bold;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Havalı kesik buton şekli */
+}
+
+.download-btn:hover {
+    background-color: #ece8e1;
+    color: #ff4655;
+    transform: scale(1.05);
+}
+
+/* 5. PADİŞAH TANITIM BÖLÜMÜ */
+.padişahlar {
+    background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,1) 15%);
+    padding: 100px 20px;
+}
+
+.card {
+    margin-bottom: 150px; /* Her padişah kartı arasında boşluk */
+    opacity: 0.9;
+    transition: 0.5s;
+}
+
+.card:hover {
+    opacity: 1;
+}
+
+.card img {
+    width: 250px; /* Padişah çizimlerinin boyutu */
+    image-rendering: pixelated; /* Piksellerin bozulmasını engeller */
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.card:hover img {
+    transform: scale(1.1) translateY(-10px); /* Üstüne gelince büyüme efekti */
+}
+
+.card h2 {
+    color: #ff4655;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    max-width: 700px; /* Açıklama metninin genişliği */
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: #ece8e1;
+    margin: 0 auto;
+    font-weight: 300;
+}
